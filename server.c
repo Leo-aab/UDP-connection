@@ -9,6 +9,7 @@
 #include <unistd.h>
 
 int main() {
+  // adding vars
   int sock;
   int addr_len, bytes_read;
   char recv_data[1024], send_data[1024];
