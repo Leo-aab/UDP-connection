@@ -25,4 +25,8 @@ int main() {
   }
   server_addr.sin_family = AF_INET;   // defining ipv4
   server_addr.sin_port = htons(5000); // defining port
+  server_addr.sin_addr.s_addr =
+      INADDR_ANY; // INADDR_ANY - to bind to all interfaces
+
+  memset(&(server_addr.sin_zero), 0, 8); // binding
 }
