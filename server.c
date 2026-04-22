@@ -38,7 +38,7 @@ int main() {
   } // binding
 
    while (1){
-     bytes_read = recvfrom()
+     bytes_read = recvfrom(sock, recv_data, 1024, 0, (struct sockaddr *)&client_addr, &addr_len);
      //idk how make this
    }
 }
