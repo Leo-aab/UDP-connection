@@ -18,7 +18,7 @@ int main() {
   struct sockaddr_in server_addr,
       client_addr; // Structures to hold server and client IP/PORT
 
-  sock = socket(AF_INET, SOCK_STREAM, 0); // AF_INET = IPV4 | SOCK_STREAM = UDP
+  sock = socket(AF_INET, SOCK_DGRAM, 0); // AF_INET = IPV4 | SOCK_DGRAM = UDP
   if (sock == -1) {
     perror("Socket error");
     exit(1);
@@ -28,5 +28,10 @@ int main() {
   server_addr.sin_addr.s_addr =
       INADDR_ANY; // INADDR_ANY - to bind to all interfaces
 
-  memset(&(server_addr.sin_zero), 0, 8); // binding
+  if(memset(&(server_addr.sin_zero), 0, 8) < 0){
+    perror("bind");
+    return 1;
+  } // binding
+
+
 }
