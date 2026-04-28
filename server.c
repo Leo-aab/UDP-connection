@@ -29,16 +29,19 @@ int main() {
     memset(&server_addr, 0, sizeof(server_addr)); //zero bytes before define ip and port
   server_addr.sin_family = AF_INET;   // defining ipv4
   server_addr.sin_port = htons(5000); // defining port
-  server_addr.sin_addr.s_addr =
-      INADDR_ANY; // INADDR_ANY - to bind to all interfaces
+  server_addr.sin_addr.s_addr = htonl(INADDR_ANY); // INADDR_ANY - to bind to all interfaces
 
   if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in)) < 0) {
     perror("bind");
     return 1;
   } // binding
-
+  adrr_len = sizeof(struct sockaddr_in); //initalizing of structure
+  
    while (1){
      bytes_read = recvfrom(sock, recv_data, 1024, 0, (struct sockaddr *)&client_addr, &addr_len);
+     if (bytes_read > 0 ) {
+       
+     }
      //idk how make this
    }
 }
