@@ -35,12 +35,13 @@ int main() {
     perror("bind");
     return 1;
   } // binding
-  adrr_len = sizeof(struct sockaddr_in); //initalizing of structure
+  addr_len = sizeof(struct sockaddr_in); //initalizing of structure
   
    while (1){
      bytes_read = recvfrom(sock, recv_data, 1024, 0, (struct sockaddr *)&client_addr, &addr_len);
      if (bytes_read > 0 ) {
-       
+      recv_data[bytes_read] = '\0';
+      printf("Hellow client: %s\n", recv_data);
      }
      //idk how make this
    }
