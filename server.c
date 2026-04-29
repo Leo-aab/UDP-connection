@@ -32,7 +32,7 @@ int main() {
      bytes_read = recvfrom(sock, recv_data, BUFFER_SIZE, 0, (struct sockaddr *)&client_addr, &addr_len);
      if (bytes_read > 0 ) {
       recv_data[bytes_read] = '\0';
-      printf("Hellow client: %s\n", recv_data);
+      printf("Client message: %s\n", recv_data);
      }
      //idk how make this
    }

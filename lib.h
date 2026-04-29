@@ -12,7 +12,9 @@
 
 
 //default numbers
-#define PORT 5000
+#define PORT 5000 //local port
+#define LOCALIP "127.0.0.1" //local ip
 #define BUFFER_SIZE 1024
+#define MAXLINE 1000
 
 #endif
